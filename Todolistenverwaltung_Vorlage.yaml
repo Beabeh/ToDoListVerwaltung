@@ -28,6 +28,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/TodoList'
+        $ref: '#/components/responses/405'
+        $ref: '#/components/responses/500'
   /todo-list:
     post:
       tags:
@@ -53,6 +55,8 @@ paths:
                 $ref: '#/components/schemas/TodoList'
         400:
           description: Invalid request
+        $ref: '#/components/responses/405'
+        $ref: '#/components/responses/500'
   /todo-list/{list_id}:
     get:
       tags:
@@ -74,6 +78,8 @@ paths:
                 $ref: '#/components/schemas/TodoList'
         404:
           description: List not found
+        $ref: '#/components/responses/405'
+        $ref: '#/components/responses/500'
     delete:
       tags:
       - Listenverwaltung
@@ -90,6 +96,8 @@ paths:
           description: List deleted
         404:
           description: List not found
+        $ref: '#/components/responses/405'
+        $ref: '#/components/responses/500'
   /todo-list/{list_id}/entries:
     get:
       tags:
@@ -148,6 +156,8 @@ paths:
           description: Invalid request
         404:
           description: List not found
+        $ref: '#/components/responses/405'
+        $ref: '#/components/responses/500'
   /todo-list/{list_id}/entry/{entry_id}:
     put:
       tags:
@@ -188,6 +198,8 @@ paths:
           description: Invalid request
         404:
           description: Entry or list not found
+        $ref: '#/components/responses/405'
+        $ref: '#/components/responses/500'
     delete:
       tags:
       - Listenverwaltung
@@ -209,7 +221,14 @@ paths:
           description: Entry deleted
         404:
           description: Entry or list not found
+        $ref: '#/components/responses/405'
+        $ref: '#/components/responses/500'
 components:
+  responses:
+    405:
+      description: "Wrong http method"
+    500:
+      description: "Internal server Error"
   schemas:
     TodoList:
       type: object
