@@ -4,6 +4,10 @@ import uuid
 app = Flask(__name__)
 
 todo_lists = {}
+@app.route('/')
+def index():
+# gebe Antwort an aufrufenden Client zurück
+    return render_template('index.html')
 
 # Get all todo lists
 @app.route('/todo-lists', methods=['GET'])
