@@ -4,9 +4,11 @@ import uuid
 app = Flask(__name__)
 
 todo_lists = {}
+
+# Define a route for the default URL
 @app.route('/')
 def index():
-# gebe Antwort an aufrufenden Client zurück
+    # return answer to a requesting client
     return render_template('index.html')
 
 # Get all todo lists
