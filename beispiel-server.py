@@ -62,11 +62,13 @@ def add_entry_to_list(list_id):
 # Update a todo list entry
 @app.route('/todo-list/<string:list_id>/entry/<string:entry_id>', methods=['PUT'])
 def update_entry(list_id, entry_id):
+    data = request.get_json()
     if list_id not in todo_lists:
         return jsonify({'error': 'List not found'}), 404
+    if 'name' not in data or 'description' not in data:
+        return jsonify({'error': 'Invalid request'}), 400
     for entry in todo_lists[list_id]['entries']:
         if entry['id'] == entry_id:
-            data = request.get_json()
             entry['name'] = data.get('name', entry['name'])
             entry['description'] = data.get('description', entry['description'])
             return jsonify(entry), 200
