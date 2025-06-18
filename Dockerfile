@@ -8,8 +8,8 @@ RUN pip install flask
 WORKDIR /app
 
 # Copy your Python script into the container
-COPY webapp.py /app
+COPY app.py /app
 
 # Define how to run the app
 ENTRYPOINT ["python"]
-CMD ["webapp.py"]
+CMD ["app.py"]
