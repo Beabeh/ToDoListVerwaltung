@@ -1,6 +1,15 @@
-FROM python:3.12-alpine
+# Dockerfile
+FROM python:3.8-alpine
+
+# Install Flask
 RUN pip install flask
+
+# Set working directory in container
 WORKDIR /app
-COPY ./app.py .
+
+# Copy your Python script into the container
+COPY webapp.py /app
+
+# Define how to run the app
 ENTRYPOINT ["python"]
-CMD ["app.py"]
+CMD ["webapp.py"]
