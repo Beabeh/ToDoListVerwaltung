@@ -316,6 +316,8 @@ Das vollständige Setup (vom Flashen der SD-Karte über Netzwerkkonfiguration bi
   Erweiterbar für zukünftige Webservices oder APIs
 ---
 
+Info für Herr Wichmann: In der letzten Unterricht habe ich auf meine Liste und das Array zugegriffen, [ ] war da und ich habe nichts geändert. Ich weiß nicht, warum ich jetzt nicht darauf zugreifen kann, da ich es testen möchte.
+
 ## Lizenz
 
 Dieses Projekt steht unter der MIT-Lizenz. Details siehe License.txt (in Repository).
