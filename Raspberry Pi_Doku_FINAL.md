@@ -277,16 +277,24 @@ CMD ["app.py"]
   So wird sichergestellt, dass der Container immer direkt deine Flask-Webanwendung startet.
 
 
-### Container bauen & starten
+### Container Image bauen
 
 ```bash
 # Erstellt ein Docker-Image mit dem Namen "webapp" basierend auf dem Dockerfile im aktuellen Verzeichnis (.)
 sudo docker build -t webapp .
-# Startet einen Container im Hintergrund (-d) und leitet Port 5000 vom Container auf Port 5000 des Raspberry Pi weiter
-sudo docker run -p 5000:5000 -d webapp
+```
+### Container Image starten
+
+Um sicherzustellen, dass der Container Image automatisch gestartet wird, sobald der Raspberry Pi eingeschaltet oder neu gestartet wird, kann die Restart-Policy von Docker verwendet werden:
+
+```bash
+# Startet den Container automatisch bei jedem Neustart des Raspberry Pi,
+# solange er nicht manuell gestoppt wurde
+# Portweiterleitung: Host-Port 5000 → Container-Port 5000 (für Webzugriff im Browser)
+sudo docker run -p 5000:5000 -d --restart unless-stopped webapp
+
 # Zeigt eine Liste aller laufenden Container – inklusive Container-ID, Namen und Ports
 sudo docker ps
-```
 
 ### Test im Browser
 
